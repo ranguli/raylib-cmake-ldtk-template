@@ -1,20 +1,22 @@
-# Simple and portable CMake template for raylib
+# raylib-cmake-ldtk-template
 
-This is a basic project template for raylib using CMake and has been tested with Visual Studio, Visual Studio Code and CLion.
+A minimal project template for a 2D game in raylib with LDtk integration that builds with CMake.
 
-The master branch of the raylib source code is downloaded using CMake FetchContent from github and compiled from source as it is much easier than including prebuilt binaries for every platform and configuration.
+## Features
+- `raylib` - The dependency is automatically fetched from GitHub and built by CMake using `FetchContent`.
+- `cLDTK` - Support for LDtk is builtin to the project using this library.
+- Asset handling - Using an `ASSETS_PATH` macro in CMake, resources can be more easily imported into Raylib without path issues.
 
-Building from the cmake file will build both raylib and `src/main.c` which includes a basic example of a raylib program.
+## Usage
 
-## Asset handling
+While visiting this repo on GitHub, select "Use this template" to create your own repository based on this template.
 
-The example in `src/main.c` uses an example image located in the `assets` folder.
-To load it we use `ASSETS_PATH`, which is a string macro with the *absolute* path "assets" directory.
-This macro is defined in the `CMakeLists.txt` file on line `23`.
- 
-If you plan on releasing or sharing your game consider manually setting the value of the `ASSETS_PATH` macro.
+### Building
 
-In C you can concatenate string literals by putting them next to each other, 
-eg: `"A" "B"` is `"AB"`. So ASSETS_PATH `"test.png"` becomes `"/path/to/your/assets/test.png"`
+After cloning your repo, building follows the same workflow for any other CMake project:
 
-If you wanna share your game with others you should set ASSETS_PATH to be a *relative* path like "./assets/". You can do this in the CMakeLists.txt file. 
+```bash
+mkdir build && cd build
+cmake ..
+make
+```
