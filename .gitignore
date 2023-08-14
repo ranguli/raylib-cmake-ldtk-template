@@ -6,3 +6,12 @@ bin/
 build/
 out/
 CMakeSettings.json
+CMakeCache.txt
+CPackConfig.cmake
+CPackSourceConfig.cmake
+CMakeFiles
+cmake_install.cmake
+compile_commands.json
+_deps
+Makefile
+my_raylib_game
