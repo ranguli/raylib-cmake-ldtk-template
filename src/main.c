@@ -5,12 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-//--------------------------------------------------------------------------------------
-//                              Raylib specific functions
-//--------------------------------------------------------------------------------------
 void DrawSprite(Texture2D texture, Rectangle sourceRec, Vector2 position, int flip, Color tint);
 void DrawTiles(struct layerInstances *layer, Texture2D texture, int offset, Color tint);
-//--------------------------------------------------------------------------------------
 
 int main(void) {
     // Initialization
@@ -20,16 +16,15 @@ int main(void) {
     InitWindow(screenWidth, screenHeight, "raylib LDtk loader - Load Tiles");
 
     // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-    Texture2D texture = LoadTexture(ASSETS_PATH "SunnyLand_by_Ansimuz.png"); // Texture loading
+    Texture2D texture = LoadTexture(ASSETS_PATH "/SunnyLand_by_Ansimuz.png"); // Texture loading
 
     // Sprite size offset
     int offset = 16;
 
     SetTargetFPS(60); // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
 
-    // Load the JSON file
-    loadJSONFile("{\"jsonVersion\":\"\"}", ASSETS_PATH "map.json");
+    // Load our map from LDtk
+    loadJSONFile("{\"jsonVersion\":\"\"}", ASSETS_PATH "/map.json");
 
     // Import the map data from the JSON file into memory
     importMapData();
@@ -134,4 +129,3 @@ void DrawTiles(struct layerInstances *layer, Texture2D texture, int offset, Colo
                    layer->autoTiles_data_ptr[y].f, tint);
     }
 }
-//--------------------------------------------------------------------------------------
